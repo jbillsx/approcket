@@ -1,0 +1,41 @@
+<html>
+  <body>
+    {% for comment in comments %}
+      <div>
+		<div><b>key.id:</b> {{comment.key.id}}</div>
+		<div><b>timestamp:</b> {{comment.timestamp}}</div>
+		<div><b>yeah.key.name:</b> {{comment.yeah.key.name}}</div>
+		<div><b>yeah.bool1:</b> {{comment.yeah.bool1}}</div>
+		<div><b>yeah.bool2:</b> {{comment.yeah.bool2}}</div>
+		<div><b>yeah.i2:</b> {{comment.yeah.i1}}</div>
+		<div><b>yeah.image1:</b> <img src="/images?key_name={{comment.yeah.key.name}}"/></div>
+      	<div><b>content:</b> {{ comment.content|escape }}</div>
+      	<div><b>list1:</b> {%for v in comment.list1%}{{v}} {%endfor%}</div>
+      	<div><b>list2:</b> {%for v in comment.list2%}{{v}} {%endfor%}</div>      
+      </div>
+      <hr/>
+    {% endfor %}
+    <form method="post">
+      <div>
+      	  content<br/>
+	      <textarea name="content" rows="3" cols="60"></textarea>
+	  </div>
+      <div>
+      	  list1
+      	  <select multiple="multiple" name="list1">
+	      	<option value="one">one</option> 
+	      	<option value="two">two</option>
+	      	<option value="three">three</option>
+	      </select>
+		
+		  list2
+	      <select multiple="multiple" name="list2">
+	      	<option value="eno">eno</option> 
+	      	<option value="owt">owt</option>
+	      	<option value="eerht">eerht</option>
+	      </select>
+      </div>
+      <div><input type="submit" value="Add"></div>
+    </form>
+  </body>
+</html>
